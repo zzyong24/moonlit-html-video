@@ -1,0 +1,5 @@
+interface:
+  display_name: "月明·HTML 信息视频"
+  short_description: "制作 html_explainer 类型的月明横版信息动画"
+  brand_color: "#39EC88"
+  default_prompt: "使用 $moonlit-html-video 根据口播、SRT 和素材制作 production_mode=html_explainer 的月明横版视频。"
