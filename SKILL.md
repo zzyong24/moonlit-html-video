@@ -2,9 +2,9 @@
 name: moonlit-html-video
 description: Use when a 月明水清深 project needs a 16:9 (default) pure-HTML, GSAP, or HyperFrames explainer video and the request involves voiceover/SRT timing, adjustable speed, product screenshots, astronaut IP visuals, Douyin-safe chapter progress, transition sound, preview iteration, or 4K/60fps delivery.
 metadata:
-  version: "1.1.0"
+  version: "1.1.1"
   production_mode: "html_explainer"
-  updated: "2026-09-09"
+  updated: "2026-10-01"
 ---
 
 # 月明纯 AI 信息演示视频
@@ -18,6 +18,8 @@ metadata:
 实际制作或改片时，使用 `video-editing`。解释机制的配图使用 `moonlit-material-illustration`，品牌场景生成使用 `imagegen`。AI 旁白默认使用 MiniMax 已确认真人复刻音色；生成或更换配音前读取 [voiceover.md](references/voiceover.md)。用户明确选择豆包时才使用 `doubao-tts-voiceover` 与旧 V3 适配器。
 
 ## 工作流
+
+盘素材、编排和预览迭代时，按当前激活名称解析 moonlit-talking-head-video 的 references/material-editing-iteration.md，补强现有资产/镜头记录与评审；资源缺失时明确报告并沿用本模式合同。只借素材、运动与迭代方法，不引入人物生成、SeeCut 工作流、剪映交接或强制视频模型评委。
 
 1. Probe 配音、SRT、截图和录屏，记录真实时长、尺寸、帧率与音轨。已授权制作 AI 视频时，生成配音并获取供应商字幕属于制作步骤；优先复用已经确认的音色。配置默认 `voice_provider=MiniMax`、`voice_type=YOUR_AUTHORIZED_VOICE_ID`、`voice_model=speech-2.8-hd`。密钥只从环境变量读取。
 2. 从本 Skill 目录创建版本化工程：
@@ -56,3 +58,5 @@ metadata:
 用户指定竖版时使用 --aspect 9:16；旧工程保持原画幅，不自动改写历史工程。横版重新排布 stage 与字幕，不把竖屏整体缩进横屏。
 
 横版共用视觉规范（2026-09-09 用户确认）：中文主字幕 + 较小英文辅助行，两者沿用同一 SRT 时间窗；顶部显示带章节名的进度条。数字人分支仅按实际出镜窗及衔接余量生成口型，详见 moonlit-avatar-video。
+
+用户需要手动翻页、截图拖动和现场录屏的 HTML PPT 时，按当前激活名称路由 `moonlit-ppt-html`（`html_presentation`）；这类请求以 HTML 与讲解稿完成。此处仍只负责由音频/SRT 驱动的 `html_explainer` 成片。
