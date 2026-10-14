@@ -31,7 +31,7 @@ project/
 - `subtitle_timing`: `pending`、`provider_segments`、`estimated` 或 `verified`；按字数细分的时间戳只能标为 `estimated`，校准后才设为 `verified`。
 - `srt_file`: SRT 相对路径。
 - `ip_reference`: 使用 `type=ai` 时必填且文件必须存在。
-- `top_progress_safe_box`: 1080×1920 逻辑画布中的 `x/y/width/height`。
+- `top_progress_safe_box`: 逻辑画布中的 `x/y/width/height`（16:9 默认 1920×1080；竖版 1080×1920）。
 - `transition.out/in/click_volume`: 转场和点击参数。
 
 ## scenes.json

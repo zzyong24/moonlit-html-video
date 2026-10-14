@@ -13,15 +13,17 @@ npx --yes hyperframes@0.8.30 render --fps 30 --quality standard --workers 2 --ou
 
 ## 最终输出
 
-用户确认后优先尝试 HyperFrames 2160×3840/60fps 高质量渲染；先检查临时空间估算。若直渲需要的临时空间或内存不可接受，使用已验证的稳定路径：
+用户确认后优先尝试 HyperFrames 4K/60fps 高质量渲染（16:9 为 3840×2160）；先检查临时空间估算。若直渲需要的临时空间或内存不可接受，使用已验证的稳定路径：
 
-1. 渲染 1080×1920 高质量母版。
-2. 用 FFmpeg Lanczos 升级到 2160×3840，并封装为 60fps。
+1. 按逻辑画布渲染高质量母版（16:9 为 1920×1080，竖版为 1080×1920）。
+2. 用 FFmpeg Lanczos 升级到 3840×2160（竖版 2160×3840），并封装为 60fps。
 3. 明确该文件是高质量母版升级，不冒充原生 4K 动效捕帧。
+
+竖版把 `scale=3840:2160` 换成 `scale=2160:3840`。
 
 ```bash
 ffmpeg -i renders/master.mp4 \
-  -vf 'scale=2160:3840:flags=lanczos,fps=60,setsar=1' \
+  -vf 'scale=3840:2160:flags=lanczos,fps=60,setsar=1' \
   -c:v libx264 -preset ultrafast -crf 16 -pix_fmt yuv420p -r 60 \
   -c:a copy -movflags +faststart renders/final-4k60.mp4
 ```

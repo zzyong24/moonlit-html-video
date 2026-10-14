@@ -68,7 +68,7 @@ def validate_project(project: Path) -> list[str]:
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="验证月明竖屏 HTML 视频项目")
+    parser = argparse.ArgumentParser(description="验证月明 HTML 视频项目（默认 16:9）")
     parser.add_argument("project", type=Path)
     args = parser.parse_args()
     errors = validate_project(args.project)
